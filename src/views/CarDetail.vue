@@ -2,18 +2,25 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="6" md="5" lg="4" xl="4">
-        <img
-          :src="selectedCar.thumbnail"
-          alt=""
-          class="img-fluid img-thumbnail"
-        />
+        <template v-if="selectedCar.thumbnail">
+          <img
+            :src="selectedCar.thumbnail"
+            alt=""
+            class="img-fluid img-thumbnail"
+          />
+        </template>
       </v-col>
       <v-col cols="12" sm="6" md="7" lg="8" xl="8">
-        <router-link to="/">Back</router-link>
+        <v-btn @click="previousPage" depressed>Go Back</v-btn>
         <div>
-          <div>Name: {{ selectedCar.name }}</div>
-          <div>Description: {{ selectedCar.description }}</div>
-          <div>
+          <div class="fw-bold">Name:</div>
+          <div class="mb-3">{{ selectedCar.name }}</div>
+          <div class="fw-bold">Price:</div>
+          <div class="fw-bold mb-3 lead">${{ selectedCar.price }}</div>
+          <div class="fw-bold">Description:</div>
+          <div class="mb-3">{{ selectedCar.description }}</div>
+          <div class="mb-3">
+            <div class="fw-bold">Ratings:</div>
             <v-rating
               :value="selectedCar.rating"
               color="amber"
@@ -23,11 +30,14 @@
               size="17"
             ></v-rating>
 
-            <span class="grey--text ms-4">({{ selectedCar.rating }})</span>
+            <!-- <span class="grey--text ms-4"
+              >({{ selectedCar.rating.toFixed() }})</span
+            > -->
           </div>
-          <div>Model: {{ selectedCar.model }}</div>
-          <div class="fw-bold">${{ selectedCar.price }}</div>
-          <div>Year: {{ selectedCar.year }}</div>
+          <div class="fw-bold">Model:</div>
+          <div class="mb-3">{{ selectedCar.model }}</div>
+          <div class="fw-bold">Model:</div>
+          <div>{{ selectedCar.year }}</div>
         </div>
       </v-col>
     </v-row>
@@ -50,6 +60,9 @@ export default {
     getSelectedCar() {
       let carId = this.$route.params.id;
       this.$store.commit('getSelectedCar', carId);
+    },
+    previousPage() {
+      this.$router.go(-1); //the go(-1) function allows user to go backward once on click of the button.
     },
   },
 };
