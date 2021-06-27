@@ -34,10 +34,10 @@ const store = new Vuex.Store({
           name.toLocaleLowerCase().includes(payload.toLocaleLowerCase())
         );
         // if(filteredResults.length > 0){
-            state.availableCars = filteredResults;
+        state.availableCars = filteredResults;
         // }
       } else {
-        state.cars = cars;
+        state.availableCars = cars;
       }
     },
     filterByYear(state, payload) {
@@ -46,7 +46,7 @@ const store = new Vuex.Store({
         let filteredResults = cars.filter(({ year }) => year == payload);
         state.availableCars = filteredResults;
       } else {
-        state.cars = cars;
+        state.availableCars = cars;
       }
     },
     filterByModel(state, payload) {
@@ -55,7 +55,7 @@ const store = new Vuex.Store({
         let filteredResults = cars.filter(({ model }) => model == payload);
         state.availableCars = filteredResults;
       } else {
-        state.cars = cars;
+        state.availableCars = cars;
       }
     },
   },

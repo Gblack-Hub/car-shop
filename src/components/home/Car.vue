@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" class="my-12" @click="viewCar(car.id)">
+  <v-card :loading="loading" class="my-1" @click="viewCar(car.id)">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
