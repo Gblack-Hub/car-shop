@@ -30,7 +30,7 @@
             <v-col class="mb-1">
               <v-text-field
                 dense
-                label="Outlined"
+                label="Search by Name"
                 v-model="searchedCarName"
                 @input="filterByName"
                 outlined

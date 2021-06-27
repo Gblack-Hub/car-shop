@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" class="my-1" @click="viewCar(car.id)">
+  <v-card :loading="loading" class="py-1" @click="viewCar(car.id)">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -8,38 +8,29 @@
       ></v-progress-linear>
     </template>
 
-    <v-img height="250" :src="car.thumbnail"></v-img>
+    <v-img height="200" :src="car.thumbnail"></v-img>
+    <div class="p-2">
+      <div class="text-left text-subtitle-1">
+        {{ car.name }}<span class="grey--text ms-2">({{ car.year }})</span>
+      </div>
 
-    <div class="pt-2 text-subtitle-1">{{ car.name }}</div>
-    <v-card-title class="p-1">${{ car.price }}</v-card-title>
-    <div class="grey--text ms-4">({{ car.year }})</div>
+      <v-card-title class="p-0">${{ car.price.toLocaleString() }}</v-card-title>
 
-    <v-card-text>
-      <v-row align="center" class="mx-0">
+      <div class="text-left">
         <v-rating
           :value="car.rating"
           color="amber"
           dense
           half-increments
           readonly
-          size="14"
+          size="16"
         ></v-rating>
-
-        <div class="grey--text ms-4">{{ car.rating }}</div>
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">{{ car.model }}</div>
-
-      <!-- <div>
-        I wanted to put car description here
-      </div> -->
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
+        <div class="text-left text-secondary small">Model: {{ car.model }}</div>
+      </div>
+    </div>
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" @click="viewCar(car.id)">
-        View
+      <v-btn color="black text-white" depressed @click="viewCar(car.id)">
+        View Car
       </v-btn>
     </v-card-actions>
   </v-card>

@@ -19,7 +19,7 @@
           <Car :car="car" />
         </v-col>
       </template>
-      <template class="my-5 text-center subtitle-5">
+      <template v-else class="my-5 text-center subtitle-5">
         <v-alert type="warning">Car not found</v-alert>
       </template>
     </v-row>
