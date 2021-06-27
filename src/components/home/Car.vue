@@ -51,13 +51,13 @@ export default {
     car: Object,
   },
   data: () => ({
-    loading: false,
-    selection: 1,
+    loading: false, //activate the loading progress bar on the card clicked
   }),
+
   methods: {
     viewCar(id) {
       this.loading = true;
-      alert(id);
+      this.$store.commit('selectCar', id);
     },
   },
 };
