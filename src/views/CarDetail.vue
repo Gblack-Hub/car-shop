@@ -1,10 +1,15 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" sm="6" md="4" lg="4" xl="4">
-        <img :src="selectedCar.thumbnail" alt="" class="img-fluid" />
+      <v-col cols="12" sm="6" md="5" lg="4" xl="4">
+        <img
+          :src="selectedCar.thumbnail"
+          alt=""
+          class="img-fluid img-thumbnail"
+        />
       </v-col>
-      <v-col cols="12" sm="6" md="8" lg="8" xl="8">
+      <v-col cols="12" sm="6" md="7" lg="8" xl="8">
+        <router-link to="/">Back</router-link>
         <div>
           <div>Name: {{ selectedCar.name }}</div>
           <div>Description: {{ selectedCar.description }}</div>
